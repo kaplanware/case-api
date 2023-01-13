@@ -33,3 +33,11 @@ function apiUrl($par){
 function session($par){
     return $_SESSION[$par];
 }
+
+function promiseCheck($response){
+    $body = json_decode($response->getBody(), 1);
+    if($response->getStatusCode() == 200)
+        die(json_encode(array('status' => $response->getStatusCode(), 'title' => "Başarılı", 'text' => $body)));
+    else
+        die(json_encode(array('status' => $response->getStatusCode(), 'title' => "Başarısız", 'text' => $body)));
+}
