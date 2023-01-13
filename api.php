@@ -76,5 +76,6 @@ function verifyOTP($otpID = "", $code = ""){
         "id" => $otpID,
         "code" => $code
     ];
-    return guzzleGo("POST", "sms/otp/verify", $params)->getBody();
+    $promise = guzzleGo("POST", "sms/otp/verify", $params)->wait();
+    promiseCheck($promise);
 }

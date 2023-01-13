@@ -1,10 +1,6 @@
 <?php
 require_once 'functions.php';
 require_once 'api.php';
-
-if(!isset($_SESSION['apikey']))
-    $_SESSION['apikey'] = "c57f5351569f71575292bbaa447c7dbe72b080fe";
-
 ?>
 
 <!doctype html>
@@ -31,7 +27,7 @@ if(!isset($_SESSION['apikey']))
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="header">
                             <div class="form-group">
                                 <label>API Key</label>
                                 <input type="text" class="form-control" id="apikey" value="c57f5351569f71575292bbaa447c7dbe72b080fe">
@@ -79,6 +75,7 @@ if(!isset($_SESSION['apikey']))
                             <div class="form-group">
                                 <label class="font-weight-bolder">OTP Kodu</label>
                                 <input type="text" class="form-control" id="verifyCode">
+                                <input type="hidden" id="otpID">
                             </div>
                             <div class="form-group">
                                 <button class="btn bg-indigo w-100" id="otpVerify">
@@ -86,6 +83,14 @@ if(!isset($_SESSION['apikey']))
                                     <span class="font-weight-bolder" id="spinner"></span>
                                 </button>
                             </div>
+                            <div class="form-group d-none" id="otpResultArea">
+                                <div class="alert alert-info alert-styled-left alert-dismissible">
+                                    <span class="font-weight-semibold">OTP Doğrulama : <span id="otpResult" class=" font-weight-bolder">Başarılı!</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 alert alert-danger d-none" id="otpErrors">
+
                         </div>
                     </div>
                 </div>

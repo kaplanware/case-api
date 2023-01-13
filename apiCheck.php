@@ -12,24 +12,20 @@ else{
         me();
     }
     else if($param == "balance"){
-        $balance = balance();
-        die(json_encode(array('status' => 200, 'title' => "Başarılı", 'text' => $balance)));
+        balance();
     }
     else if($param == "smsTitles"){
-        $smsTitles = smsTitles();
-        die(json_encode(array('status' => 200, 'title' => "Başarılı", 'text' => $smsTitles)));
+        smsTitles();
     }
     else if($param == "sendOTP"){
         $mobile = $post['mobile'];
         $message = $post['message'];
-        $sendOTP = sendOTP($mobile, $message);
-        die(json_encode(array('status' => 200, 'title' => "Başarılı", 'text' => $sendOTP)));
+        sendOTP($mobile, $message);
     }
     else if($param == "verifyOTP"){
         $otpID = $post['otpID'];
-        $code = $post['code'];
-        $verifyOTP = verifyOTP($otpID, $code);
-        die(json_encode(array('status' => 200, 'title' => "Başarılı", 'text' => $verifyOTP)));
+        $code = $post['verifyCode'];
+        verifyOTP($otpID, $code);
     }
     else{
         die(json_encode(array('status' => 400, 'title' => "Başarısız", 'text' => "Geçersiz İşlem")));
