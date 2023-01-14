@@ -30,7 +30,7 @@ require_once 'api.php';
                         <div class="col-md-12" id="header">
                             <div class="form-group">
                                 <label>API Key</label>
-                                <input type="text" class="form-control" id="apikey" value="c57f5351569f71575292bbaa447c7dbe72b080fe">
+                                <input type="text" class="form-control" id="apikey" value="apikey">
                             </div>
                             <button class="btn btn-primary" id="btnMe" data-param="me">Kullanıcı Bilgileri</button>
                             <button class="btn btn-primary" id="btnBalance" data-param="balance">Bakiye</button>
